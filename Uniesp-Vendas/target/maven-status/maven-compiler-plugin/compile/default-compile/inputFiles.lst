@@ -1,6 +1,10 @@
-C:\Users\55839\Documents\NetBeansProjects\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\beans\CadastroItem.java
-C:\Users\55839\Documents\NetBeansProjects\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\entidades\ProdutoVenda.java
-C:\Users\55839\Documents\NetBeansProjects\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\entidades\Venda.java
-C:\Users\55839\Documents\NetBeansProjects\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\resources\JavaEE8Resource.java
-C:\Users\55839\Documents\NetBeansProjects\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\entidades\Produto.java
-C:\Users\55839\Documents\NetBeansProjects\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\JAXRSConfiguration.java
+C:\Users\55839\Documents\github\uniesp\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\resources\JavaEE8Resource.java
+C:\Users\55839\Documents\github\uniesp\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\controladores\ControladorProduto.java
+C:\Users\55839\Documents\github\uniesp\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\beans\ProdutoConsultaBean.java
+C:\Users\55839\Documents\github\uniesp\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\entidades\Produto.java
+C:\Users\55839\Documents\github\uniesp\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\entidades\ProdutoVenda.java
+C:\Users\55839\Documents\github\uniesp\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\entidades\Venda.java
+C:\Users\55839\Documents\github\uniesp\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\repositorio\IRepositorio.java
+C:\Users\55839\Documents\github\uniesp\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\repositorio\ProdutoRepositorio.java
+C:\Users\55839\Documents\github\uniesp\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\beans\CadastroItem.java
+C:\Users\55839\Documents\github\uniesp\Uniesp-Vendas\src\main\java\br\edu\uniesp\vendas\JAXRSConfiguration.java

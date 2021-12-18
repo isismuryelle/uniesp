@@ -1,6 +1,0 @@
-br\edu\uniesp\vendas\entidades\ProdutoVenda.class
-br\edu\uniesp\vendas\entidades\Produto.class
-br\edu\uniesp\vendas\JAXRSConfiguration.class
-br\edu\uniesp\vendas\beans\CadastroItem.class
-br\edu\uniesp\vendas\entidades\Venda.class
-br\edu\uniesp\vendas\resources\JavaEE8Resource.class

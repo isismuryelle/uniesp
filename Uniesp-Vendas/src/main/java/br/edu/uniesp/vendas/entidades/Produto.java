@@ -7,15 +7,35 @@ package br.edu.uniesp.vendas.entidades;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 /**
  *
  * @author 55839
  */
+@Entity
+@Table(name = "TB_PRODUTO")
+@SequenceGenerator(name = "SEQ_PRODUTO",sequenceName="SEQ_PRODUTO", allocationSize=1)
 public class Produto {
     
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PRODUTO")
+	@Column(name = "ID_PRODUTO")
     private Long id;
+	
+	@Column(name = "DES_PRODUTO")
     private String nomeProduto;
+	
+	@Column(name = "VAL_PRODUTO")
     private BigDecimal precoProduto;
+	
+	@Column(name = "EST_PRODUTO")
     private Long estoque;
 
     public Long getId() {
