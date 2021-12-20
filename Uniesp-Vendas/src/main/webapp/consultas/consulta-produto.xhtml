@@ -4,7 +4,8 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	template="./../template/base-template.xhtml">
+	template="./../template/base-template.xhtml"
+	xmlns:f="http://java.sun.com/jsf/core">
 	<ui:define name="content">
 		<div class="card">
 			<h:form>
@@ -14,14 +15,22 @@
 						<p:column headerText="Id">
 							<h:outputText value="#{produto.id}" />
 						</p:column>
-						<p:column headerText="Nome">
-							<h:outputText value="#{produto.nomeProduto}" />
+						<p:column headerText="Editar">
+							<h:link value="#{produto.nomeProduto}"
+								outcome="/cadastros/cadastro-produto.xhtml">
+								<f:param name="idProduto" value="#{produto.id}" />
+							</h:link>
 						</p:column>
 						<p:column headerText="Preço">
 							<h:outputText value="#{produto.precoProduto}" />
 						</p:column>
 						<p:column headerText="Estoque">
 							<h:outputText value="#{produto.estoque}" />
+						</p:column>
+						<p:column headerText="Deletar">
+							<p:commandButton value="Deletar" icon="pi pi-fw pi-trash"
+								action="#{consultarProdutoBean.deletarProduto(produto)}">
+							</p:commandButton>
 						</p:column>
 					</p:dataTable>
 				</div>

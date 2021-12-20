@@ -23,4 +23,12 @@ public class ConsultarProdutoBean implements Serializable {
 		return controladorProduto.listar();
 	}
 
+	public void deletarProduto(Produto produto) {
+		controladorProduto.deletar(produto);
+	}
+
+	public String redirecionaParaPaginaCadastro() {
+		return "/Uniesp-Vendas-1.0-SNAPSHOT/faces/cadastros/cadastro-produto.xhtml";
+	}
+
 }

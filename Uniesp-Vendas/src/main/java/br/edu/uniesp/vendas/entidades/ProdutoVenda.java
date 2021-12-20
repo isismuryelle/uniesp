@@ -23,7 +23,7 @@ public class ProdutoVenda {
 	@Column(name = "ID_PRODUTO_VENDA")
 	private Long id;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "ID_PRODUTO", referencedColumnName = "ID_PRODUTO")
 	private Produto produto;
 

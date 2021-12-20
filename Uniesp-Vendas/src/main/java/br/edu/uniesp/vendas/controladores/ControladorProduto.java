@@ -37,4 +37,8 @@ public class ControladorProduto {
 		produtoRepositorio.deletar(produto);
 	}
 
+	public Produto buscarPorId(Long idProduto) {
+		return produtoRepositorio.buscarPorId(idProduto);
+	}
+
 }

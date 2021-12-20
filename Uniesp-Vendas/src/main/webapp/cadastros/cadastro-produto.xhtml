@@ -6,6 +6,15 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	template="./../template/base-template.xhtml">
+	<f:metadata>
+		<f:viewParam name="idProduto"
+			value="#{cadastrarProdutoBean.idProduto}"
+			converter="javax.faces.Long">
+		</f:viewParam>
+		<f:event listener="#{cadastrarProdutoBean.init()}"
+			type="preRenderView">
+		</f:event>
+	</f:metadata>
 	<ui:define name="content">
 		<p:panel header="Cadastro Produto">
 			<h:form>

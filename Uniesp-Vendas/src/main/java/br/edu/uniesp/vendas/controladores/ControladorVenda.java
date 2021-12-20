@@ -37,4 +37,8 @@ public class ControladorVenda {
 		vendaRepositorio.deletar(venda);
 	}
 
+	public Venda buscarPorId(Long idVenda) {
+		return vendaRepositorio.buscarPorId(idVenda);
+	}
+
 }

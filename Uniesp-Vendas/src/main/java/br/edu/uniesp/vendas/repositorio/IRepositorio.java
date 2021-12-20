@@ -22,6 +22,8 @@ public abstract class IRepositorio<T> {
 
 	abstract T salvar(T t);
 
+	abstract T buscarPorId(Long id);
+
 	abstract List<T> listar();
 
 	abstract void deletar(T t);

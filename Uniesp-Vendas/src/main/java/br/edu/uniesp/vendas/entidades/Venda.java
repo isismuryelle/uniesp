@@ -28,7 +28,7 @@ public class Venda {
 	@Column(name = "DAT_VENDA")
 	private LocalDateTime dataVenda;
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinColumn(name = "ID_PRODUTO_VENDA")
 	private List<ProdutoVenda> produtosVenda;
 

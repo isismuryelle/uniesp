@@ -21,12 +21,20 @@ public class CadastrarProdutoBean implements Serializable {
 
 	private Produto produto;
 
+	private Long idProduto;
+
 	@PostConstruct
 	public void init() {
 		produto = new Produto();
+		if (getIdProduto() != null) {
+			setProduto(controladorProduto.buscarPorId(getIdProduto()));
+		}
 	}
 
 	public Produto salvar() {
+		if (getIdProduto() != null) {
+			produto.setId(getIdProduto());
+		}
 		return controladorProduto.salvar(produto);
 	}
 
@@ -36,6 +44,14 @@ public class CadastrarProdutoBean implements Serializable {
 
 	public void setProduto(Produto produto) {
 		this.produto = produto;
+	}
+
+	public Long getIdProduto() {
+		return idProduto;
+	}
+
+	public void setIdProduto(Long idProduto) {
+		this.idProduto = idProduto;
 	}
 
 }

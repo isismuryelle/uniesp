@@ -36,12 +36,18 @@ public class CadastrarVendaBean implements Serializable {
 
 	private Venda venda;
 
+	private Long idVenda;
+
 	@PostConstruct
 	public void init() {
 		setVenda(new Venda());
 		setProdutoVenda(new ProdutoVenda());
 		setProdutosHaVenda(controladorProduto.listar());
 		setProdutosAdicionados(new ArrayList<ProdutoVenda>());
+		if (getIdVenda() != null) {
+			setVenda(controladorVenda.buscarPorId(getIdVenda()));
+			setProdutosAdicionados(getVenda().getProdutosVenda());
+		}
 	}
 
 	public void salvar() {
@@ -89,6 +95,14 @@ public class CadastrarVendaBean implements Serializable {
 
 	public void setVenda(Venda venda) {
 		this.venda = venda;
+	}
+
+	public Long getIdVenda() {
+		return idVenda;
+	}
+
+	public void setIdVenda(Long idVenda) {
+		this.idVenda = idVenda;
 	}
 
 }

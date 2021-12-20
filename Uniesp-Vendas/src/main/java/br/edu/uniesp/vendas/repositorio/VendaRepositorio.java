@@ -3,6 +3,7 @@ package br.edu.uniesp.vendas.repositorio;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import br.edu.uniesp.vendas.entidades.Venda;
 
@@ -27,7 +28,19 @@ public class VendaRepositorio extends IRepositorio<Venda> {
 
 	@Override
 	public void deletar(Venda t) {
-		getEntityManager().remove(t);
+		Venda venda = buscarPorId(t.getId());
+		getEntityManager().remove(venda);
+	}
+
+	@Override
+	public Venda buscarPorId(Long idVenda) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT venda ");
+		sql.append("FROM Venda venda ");
+		sql.append("WHERE venda.id = :idVenda ");
+		TypedQuery<Venda> query = getEntityManager().createQuery(sql.toString(), Venda.class);
+		query.setParameter("idVenda", idVenda);
+		return query.getSingleResult();
 	}
 
 }

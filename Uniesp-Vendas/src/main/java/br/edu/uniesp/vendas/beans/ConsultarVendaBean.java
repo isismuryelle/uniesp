@@ -23,4 +23,8 @@ public class ConsultarVendaBean implements Serializable {
 		return controladorVenda.listar();
 	}
 
+	public void deletarVenda(Venda venda) {
+		controladorVenda.deletar(venda);
+	}
+
 }

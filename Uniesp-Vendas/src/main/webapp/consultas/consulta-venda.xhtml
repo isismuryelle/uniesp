@@ -4,6 +4,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
 	template="./../template/base-template.xhtml">
 	<ui:define name="content">
 		<div class="card">
@@ -12,7 +13,10 @@
 					<p:repeat var="venda" value="#{consultarVendaBean.listarVendas()}">
 						<div class="p-field p-col-3 p-md-3">
 							<label for="idVenda">Id da Venda: </label>
-							<p:outputLabel id="idVenda" value="#{venda.id}" />
+							<h:link value="#{venda.id}"
+								outcome="/faces/cadastros/cadastro-venda.xhtml">
+								<f:param name="idVenda" value="#{venda.id}" />
+							</h:link>
 						</div>
 						<div class="p-field p-col-3 p-md-3">
 							<label for="dataVenda">Data da Venda: </label>
@@ -32,8 +36,12 @@
 								</p:outputLabel>
 							</div>
 						</p:repeat>
+						<p:commandButton value="Deletar" icon="pi pi-fw pi-trash"
+							action="#{consultarVendaBean.deletarVenda(venda)}">
+						</p:commandButton>
 					</p:repeat>
 				</div>
+				<br />
 			</h:form>
 		</div>
 	</ui:define>
