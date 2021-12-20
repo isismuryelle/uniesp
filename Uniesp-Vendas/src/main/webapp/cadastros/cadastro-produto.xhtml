@@ -6,30 +6,36 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	template="./../template/base-template.xhtml">
-
-	<ui:define name="content">        
-        <p:card style="width: 25rem; margin-bottom: 2em">
-			<f:facet name="title">
-		        Cadastro Produto
-		    </f:facet>
-
-			<div>
-				<span class="ui-float-label pading"> 
-					<p:inputText id="nome" value="#{cadastroProduto.produto.nomeProduto}" /> 
-					<p:outputLabel for="@previous" value="Nome produto" />
-				</span> 
-				<span class="ui-float-label pading"> 
-					<p:inputText id="preco" value="#{cadastroProduto.produto.precoProduto}" /> 
-					<p:outputLabel for="@previous" value="Preço produto" />
-				</span> 
-				<span class="ui-float-label pading"> 
-					<p:inputText id="qtde" value="#{cadastroProduto.produto.estoque}" disabled="true" /> 
-					<p:outputLabel for="@previous" value="Quantidade produto" />
-				</span>
-			</div>
-
-		</p:card>
-
+	<ui:define name="content">
+		<p:panel header="Cadastro Produto">
+			<h:form>
+				<div class="ui-fluid p-formgrid p-grid">
+					<div class="p-field p-col-3 p-md-3">
+						<label for="nomeProduto">Nome produto</label>
+						<p:inputText id="nomeProduto" type="text"
+							value="#{cadastrarProdutoBean.produto.nomeProduto}">
+						</p:inputText>
+					</div>
+					<br />
+					<div class="p-field p-col-3 p-md-3">
+						<label for="precoProduto">Preço produto</label>
+						<p:inputNumber id="precoProduto" modifyValueOnWheel="false"
+							value="#{cadastrarProdutoBean.produto.precoProduto}">
+						</p:inputNumber>
+					</div>
+					<br />
+					<div class="p-field p-col-3 p-md-3">
+						<label for="qtdeProduto">Quantidade produto</label>
+						<p:spinner id="qtdeProduto" disabled="true"
+							value="#{cadastrarProdutoBean.produto.estoque}">
+						</p:spinner>
+					</div>
+					<br />
+					<p:commandButton value="Salvar"
+						action="#{cadastrarProdutoBean.salvar}">
+					</p:commandButton>
+				</div>
+			</h:form>
+		</p:panel>
 	</ui:define>
-
 </ui:composition>

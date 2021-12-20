@@ -1,11 +1,63 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                template="./../template/base-template.xhtml">
-
-    <ui:define name="content">
-        content
-    </ui:define>
-
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	template="./../template/base-template.xhtml">
+	<ui:define name="content">
+		<p:panel header="Cadastro Vendas">
+			<h:form>
+				<div class="ui-fluid p-formgrid p-grid">
+					<div class="p-field p-col-3 p-md-3">
+						<label for="itensVenda">Itens da Venda</label>
+						<p:selectOneMenu id="itensVenda" converter="simpleEntityConverter"
+							value="#{cadastrarVendaBean.produtoVenda.produto}">
+							<f:selectItem itemLabel="Selecionar.." noSelectionOption="true" />
+							<f:selectItems value="#{cadastrarVendaBean.produtosHaVenda}"
+								var="produto" itemValue="#{produto}"
+								itemLabel="#{produto.nomeProduto}">
+							</f:selectItems>
+						</p:selectOneMenu>
+					</div>
+					<br />
+					<div class="p-field p-col-3 p-md-3">
+						<label for="qtdeProduto">Quantidade de Itens</label>
+						<p:spinner id="qtdeProduto"
+							value="#{cadastrarVendaBean.produtoVenda.quantidade}">
+						</p:spinner>
+					</div>
+					<br />
+					<div class="p-field p-col-3 p-md-3">
+						<label for="precoProduto">Total da Venda</label>
+						<p:inputNumber id="precoProduto" modifyValueOnWheel="false"
+							value="#{cadastrarVendaBean.produtoVenda.valorProduto}">
+						</p:inputNumber>
+					</div>
+					<br />
+					<p:dataTable id="dtCadastradoVendas" var="produtoVenda"
+						value="#{cadastrarVendaBean.produtosAdicionados}">
+						<p:column headerText="Nome do Produto">
+							<h:outputText value="#{produtoVenda.produto.nomeProduto}" />
+						</p:column>
+						<p:column headerText="Quantidade Vendida">
+							<h:outputText value="#{produtoVenda.quantidade}" />
+						</p:column>
+						<p:column headerText="Preço total da venda">
+							<h:outputText value="#{produtoVenda.valorProduto}" />
+						</p:column>
+					</p:dataTable>
+					<br />
+					<p:commandButton value="Adicionar Item" update="dtCadastradoVendas"
+						actionListener="#{cadastrarVendaBean.adicionarProdutos}">
+					</p:commandButton>
+					<br /> <br />
+					<p:commandButton value="Salvar"
+						action="#{cadastrarVendaBean.salvar}">
+					</p:commandButton>
+				</div>
+			</h:form>
+		</p:panel>
+	</ui:define>
 </ui:composition>

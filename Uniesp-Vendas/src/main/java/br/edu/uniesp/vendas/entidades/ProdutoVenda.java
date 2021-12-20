@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.uniesp.vendas.entidades;
 
 import java.math.BigDecimal;
@@ -18,11 +13,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-/**
- *
- * @author 55839
- */
-
 @Entity
 @Table(name = "TB_PRODUTO_VENDA")
 @SequenceGenerator(name = "SEQ_PRODUTO_VENDA", sequenceName = "SEQ_PRODUTO_VENDA", allocationSize = 1)
@@ -32,14 +22,14 @@ public class ProdutoVenda {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PRODUTO_VENDA")
 	@Column(name = "ID_PRODUTO_VENDA")
 	private Long id;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ID_PRODUTO", referencedColumnName = "ID_PRODUTO")
 	private Produto produto;
-	
+
 	@Column(name = "QTDE_PRODUTO")
 	private Long quantidade;
-	
+
 	@Column(name = "VAL_PRODUTO")
 	private BigDecimal valorProduto;
 

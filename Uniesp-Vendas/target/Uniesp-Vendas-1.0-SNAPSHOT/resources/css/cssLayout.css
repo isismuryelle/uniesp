@@ -69,3 +69,7 @@
     flex-wrap: wrap;
     padding-top: 1rem;
 }
+
+.pading #span{
+	padding: 30px;
+}

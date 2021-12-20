@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 public abstract class IRepositorio<T> {
 
 	private EntityManager entityManager;
-	
+
 	public IRepositorio(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
@@ -19,9 +19,11 @@ public abstract class IRepositorio<T> {
 	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
-	
-	
-	abstract T salva(T t);
+
+	abstract T salvar(T t);
+
 	abstract List<T> listar();
-	
+
+	abstract void deletar(T t);
+
 }

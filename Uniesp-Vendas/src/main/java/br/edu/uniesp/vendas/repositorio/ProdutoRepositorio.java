@@ -13,20 +13,21 @@ public class ProdutoRepositorio extends IRepositorio<Produto> {
 	}
 
 	@Override
-	public Produto salva(Produto produto) {		
+	public Produto salvar(Produto produto) {
 		return getEntityManager().merge(produto);
 	}
 
 	@Override
 	public List<Produto> listar() {
-		
 		StringBuilder sql = new StringBuilder();
-		sql.append("Select p ");
-		sql.append("from Produto p");
-		return getEntityManager().createQuery(sql.toString()).getResultList();
+		sql.append("SELECT produto ");
+		sql.append("FROM Produto produto");
+		return getEntityManager().createQuery(sql.toString(), Produto.class).getResultList();
 	}
 
-	
-	
-		
+	@Override
+	public void deletar(Produto t) {
+		getEntityManager().remove(t);
+	}
+
 }

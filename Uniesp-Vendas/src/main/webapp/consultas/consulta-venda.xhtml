@@ -1,11 +1,40 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                template="./../template/base-template.xhtml">
-
-    <ui:define name="content">
-        BLA BLA BLA
-    </ui:define>
-
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="./../template/base-template.xhtml">
+	<ui:define name="content">
+		<div class="card">
+			<h:form>
+				<div class="card">
+					<p:repeat var="venda" value="#{consultarVendaBean.listarVendas()}">
+						<div class="p-field p-col-3 p-md-3">
+							<label for="idVenda">Id da Venda: </label>
+							<p:outputLabel id="idVenda" value="#{venda.id}" />
+						</div>
+						<div class="p-field p-col-3 p-md-3">
+							<label for="dataVenda">Data da Venda: </label>
+							<p:outputLabel id="dataVenda" value="#{venda.dataVenda}" />
+						</div>
+						<p:repeat var="produtoVenda" value="#{venda.produtosVenda}">
+							<div class="p-field p-col-3 p-md-3">
+								<label for="totalVenda">Total da Venda: </label>
+								<p:outputLabel id="totalVenda"
+									value="#{produtoVenda.valorProduto}">
+								</p:outputLabel>
+							</div>
+							<div class="p-field p-col-3 p-md-3">
+								<label for="itensVenda">Itens da Venda: </label>
+								<p:outputLabel id="itensVenda"
+									value="#{produtoVenda.produto.nomeProduto}">
+								</p:outputLabel>
+							</div>
+						</p:repeat>
+					</p:repeat>
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
 </ui:composition>

@@ -1,18 +1,35 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui"
-                template="./../template/base-template.xhtml">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	template="./../template/base-template.xhtml">
 
-    <ui:define name="content">
-        BLA BLA BLA
-        <div class="card">
-            <span class="ui-float-label">
-                <p:inputText id="float-input" value="#{cadastroItem.item.id}"/>
-                <p:outputLabel for="@previous" value="Id produto"/>
-            </span>
-        </div>
-    </ui:define>
+	<ui:define name="content">        
+        <p:card style="width: 25rem; margin-bottom: 2em">
+			<f:facet name="title">
+		        Cadastro Produto
+		    </f:facet>
+
+			<div>
+				<span class="ui-float-label pading"> 
+					<p:inputText id="nome" value="#{cadastroProduto.produto.nomeProduto}" /> 
+					<p:outputLabel for="@previous" value="Nome produto" />
+				</span> 
+				<span class="ui-float-label pading"> 
+					<p:inputText id="preco" value="#{cadastroProduto.produto.precoProduto}" /> 
+					<p:outputLabel for="@previous" value="Preço produto" />
+				</span> 
+				<span class="ui-float-label pading"> 
+					<p:inputText id="qtde" value="#{cadastroProduto.produto.estoque}" disabled="true" /> 
+					<p:outputLabel for="@previous" value="Quantidade produto" />
+				</span>
+			</div>
+
+		</p:card>
+
+	</ui:define>
 
 </ui:composition>
